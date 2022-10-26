@@ -1,0 +1,39 @@
+Create a grocery store database
+
+CREATE table store (id INTEGER PRIMARY key, name TEXT, quantity INTEGER, price NUMERIC, department TEXT);
+
+INSERT into store VALUES (1, "apples", 5, 1.25, "groceries");
+INSERT into store VALUES (2, "potatoes", 3, 0.75, "groceries");
+INSERT into store VALUES (3, "cupcakes", 2, 2.50, "bakery isle");
+INSERT into store VALUES (4, "bannas" , 7, 2.20, "groceries");
+INSERT into store VALUES (5, "Pinot noir", 1, 15.00, "wine");
+INSERT into store VALUES (6, "Seltzers", 12 , 20.00,"fridge");
+INSERT into store VALUES (7, "hand soap", 2, 3.50,"bath and body");
+INSERT into store VALUES (8, "Detergent", 1, 12.50, "hygienic care");
+INSERT into store VALUES (9, "It ends with us", 1, 16.99, "books");
+INSERT into store VALUES (10, "airpods", 1, 189.00, "electronics");
+INSERT into store VALUES (11, "sheets", 1, 17.99, "home");
+INSERT into store VALUES (12, "pillow case", 2, 7.50, "home");
+INSERT into store VALUES (13, "mascara", 1, 8.99, "beauty");
+INSERT into store VALUES (14, "makeup remover", 1, 7.50, "beauty");
+INSERT into store VALUES (15, "pens" , 1, 9.50, "school supplies");
+SELECT * FROM store WHERE price ORDER by price;
+SELECT * FROM store WHERE department = "groceries" and quantity <8;
+SELECT * FROM store WHERE department = "beauty" and quantity <8;
+SELECT department, SUM (quantity) FROM store GROUP BY department;
+
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg bulk item price"
+FROM store
+where section='bulk'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
